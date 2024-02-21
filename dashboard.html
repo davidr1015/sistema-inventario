@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de inventario - Dashboard</title>
+    <link rel="stylesheet" href="public/css/output.css">
+</head>
+
+<body>
+    <header class="h-20 flex justify-between items-center px-6 border-b-gray-100 border relative z-20">
+
+        <img class="h-10"
+            src="https://www.fenixbgsas.com/wp-content/uploads/2023/08/cropped-FenixLogoOscuro-1-300x100.png"
+            alt="logo">
+
+
+
+        <div class="flex gap-2 items-center">
+
+            <!-- Light-Dark Toggle -->
+            <div class="flex justify-center bg-gray-100 border-gray-200 border p-1 rounded-full">
+                <div id="buttonGroup" class="inline-flex gap-1">
+                    <button id="button1" class="bg-white h-6 w-6 p-1 rounded-full text-blue-600">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 5V3m0 18v-2M7 7 5.7 5.7m12.8 12.8L17 17M5 12H3m18 0h-2M7 17l-1.4 1.4M18.4 5.6 17 7.1M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+                        </svg>
+                    </button>
+
+                    <button id="button2" class=" h-6 w-6 p-1 rounded-full text-gray-400">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 21a9 9 0 0 1-.5-18v0A9 9 0 0 0 20 15h.5a9 9 0 0 1-8.5 6Z" />
+                        </svg>
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- Dropdown -->
+            <div class="relative inline-block text-left">
+
+                <div>
+                    <button id="dropdown-button" type="button"
+                        class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-md">
+                        David Delgado
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M10 12a1 1 0 01-.707-.293l-4-4a1 1 0 111.414-1.414L10 9.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="dropdown-menu"
+                    class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden z-40"
+                    role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="py-1" role="none">
+                        <!-- Opción 1 -->
+                        <a href="#"
+                            class="flex gap-2 items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            role="menuitem" tabindex="-1" id="menu-item-0">
+
+                            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M21 13v-2a1 1 0 0 0-1-1h-.8l-.7-1.7.6-.5a1 1 0 0 0 0-1.5L17.7 5a1 1 0 0 0-1.5 0l-.5.6-1.7-.7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v.8l-1.7.7-.5-.6a1 1 0 0 0-1.5 0L5 6.3a1 1 0 0 0 0 1.5l.6.5-.7 1.7H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.8l.7 1.7-.6.5a1 1 0 0 0 0 1.5L6.3 19a1 1 0 0 0 1.5 0l.5-.6 1.7.7v.8a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.8l1.7-.7.5.6a1 1 0 0 0 1.5 0l1.4-1.4a1 1 0 0 0 0-1.5l-.6-.5.7-1.7h.8a1 1 0 0 0 1-1Z" />
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                            </svg>
+
+                            Configuración</a>
+                        <!-- Opción 2 -->
+                        <a href="index.html"
+                            class="flex gap-2 items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                            role="menuitem" tabindex="-1" id="menu-item-1">
+                            <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2" />
+                            </svg>
+
+                            Cerrar Sesión</a>
+                        <!-- Opción 3 -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+    <div class="absolute bottom-0 top-20 w-full flex z-0 overflow-x-hidden">
+        <!-- Menu de navegacion -->
+        <nav id="nav" class="min-w-80 -ml-80 h-full fixed z-10 bg-white  transition-all duration-500 md:min-w-64 md:-ml-64 lg:-ml-64">
+
+            <button id="menu-button"
+                class="absolute -right-10 md:-right-14 top-2 w-20 text-right h-10 bg-blue-600 text-white rounded-full flex justify-end  md:justify-center items-center shadow-sm">
+                <svg class="w-6 h-6 mr-3 md:mr-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
+                </svg>
+            </button>
+            <ul class="my-10 p-2 text-gray-700 text-md font-medium">
+                <li>
+                    <a class="flex items-center py-3 px-4 rounded-md gap-2 hover:bg-blue-700 hover:text-white" href="#">
+                        <svg class="" xmlns="http://www.w3.org/2000/svg"
+                            class="icon icon-tabler icon-tabler-layout-dashboard" width="15" height="15"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 4h6v8h-6z" />
+                            <path d="M4 16h6v4h-6z" />
+                            <path d="M14 12h6v8h-6z" />
+                            <path d="M14 4h6v4h-6z" />
+                        </svg>
+
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a class="flex items-center py-3 px-4 rounded-md gap-2 hover:bg-blue-700 hover:text-white" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-laptop"
+                            width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 19l18 0" />
+                            <path d="M5 6m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z" />
+                        </svg>
+                        Equipos
+                    </a>
+                </li>
+                <li>
+                    <a class="flex items-center py-3 px-4 rounded-md gap-2 hover:bg-blue-700 hover:text-white" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-friends" width="20"
+                            height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M7 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M5 22v-5l-1 -1v-4a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4l-1 1v5" />
+                            <path d="M17 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                            <path d="M15 22v-4h-2l2 -6a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1l2 6h-2v4" />
+                        </svg>
+                        Empleados
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="bg-gray-50 pt-10 pb-32 px-16 w-full">
+
+            <h1 class="text-5xl font-semibold mb-7">Bienvenido</h1>
+
+            <!-- Grid container -->
+            <div class="grid auto-rows-min mb-2 lg:grid-cols-3 lg:grid-rows-3 gap-6 h-full ">
+
+                <!-- Grid item -->
+                <div class="bg-white min-h-28 rounded-lg shadow-md">
+                    <a class="w-full h-full p-3 flex flex-col justify-between items-start" href="#">
+                        <header>
+                            <div class="bg-yellow-400 w-10 h-10 p-2 rounded-full text-black shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                    class="icon icon-tabler icon-tabler-device-laptop" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M3 19l18 0" />
+                                    <path
+                                        d="M5 6m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z" />
+                                </svg>
+                            </div>
+                        </header>
+                        <span class="text-3xl self-center font-bold mb-3">25</span>
+                        <h2 class="text-md font-semibold text-gray-600">Equipos registrados</h2>
+                    </a>
+                </div>
+
+                <!-- Grid item -->
+                <div class="bg-white min-h-28 rounded-lg shadow-md">
+                    <a class="w-full h-full p-3 flex flex-col justify-between items-start" href="#">
+                        <header>
+                            <div class="bg-blue-700 w-10 h-10 p-2 rounded-full text-white shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-friends"
+                                   viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M7 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                    <path d="M5 22v-5l-1 -1v-4a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4l-1 1v5" />
+                                    <path d="M17 5m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                    <path d="M15 22v-4h-2l2 -6a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1l2 6h-2v4" />
+                                </svg>
+                            </div>
+                        </header>
+                        <span class="text-3xl self-center font-bold mb-3">16</span>
+                        <h2 class="text-md font-semibold text-gray-600">Empleados registrados</h2>
+                    </a>
+                </div>
+
+                <!-- Grid item -->
+                <div class="bg-white min-h-28 rounded-lg shadow-md">
+                    <a class="w-full h-full p-3 flex flex-col justify-between items-start" href="#">
+                        <header>
+                            <div class="bg-red-700 w-10 h-10 p-2 rounded-full text-white shadow-md">
+                                <svg  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5.4V3m0 2.4a5.3 5.3 0 0 1 5.1 5.3v1.8c0 2.4 1.9 3 1.9 4.2 0 .6 0 1.2-.5 1.2h-13c-.5 0-.5-.6-.5-1.2 0-1.2 1.9-1.8 1.9-4.2v-1.8A5.3 5.3 0 0 1 12 5.4Zm-8.1 5.3c0-2 .8-4.1 2.2-5.7m14 5.7c0-2-.8-4.1-2.2-5.7M8.5 18a3.5 3.5 0 0 0 7 0h-7Z"/>
+                                  </svg>
+                            </div>
+                        </header>
+                        <span class="text-3xl self-center font-bold mb-3">2</span>
+                        <h2 class="text-md font-semibold text-gray-600">Prestamos vencidos</h2>
+                    </a>
+                </div>
+
+                <!-- Grid item -->
+                <div class="bg-white min-h-28 rounded-lg shadow-md  lg:col-span-2 lg:row-span-3">
+                    <div class="w-full h-full p-3 flex flex-col justify-between items-start" href="#">
+                        <header>
+                            <div class="bg-red-400 w-10 h-10 p-2 rounded-full text-white shadow-md">
+                                <svg  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v15c0 .6.4 1 1 1h15M8 16l2.5-5.5 3 3L17.3 7 20 9.7"/>
+                                  </svg>
+                            </div>
+                        </header>
+                        
+                        <h2 class="text-md font-semibold text-gray-600">Grafico</h2>
+                    </div>
+                </div>
+
+                <!-- Grid item -->
+                <div class="bg-white min-h-28 rounded-lg shadow-md lg:row-span-3">
+                    <div class="w-full h-full p-3 flex flex-col justify-start items-start" href="#">
+                        <header>
+                            <div class="bg-green-400 w-10 h-10 p-2 rounded-full text-white shadow-md">
+                                <svg  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                  </svg>
+                            </div>
+                        </header>
+
+                        <table class="mt-4 w-full text-start">
+                            
+                            <thead class="text-left">
+                              <tr>
+                                <th >Empleado</th>
+                                <th>Equipo</th>
+                                <th>Fecha devolución</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td>David Delgado</td>
+                              <td>0025 - PORTATIL DELL</td>
+                              <td>19/02/2024</td>
+                            </tr>
+                            <tr>
+                                <td>Gustavo Garnau</td>
+                                <td>0015 - PORTATIL DELL</td>
+                                <td>19/02/2024</td>
+                            </tr>
+                            <tr>
+                                <td>Angelica Martinez</td>
+                                <td>0013 - PORTATIL DELL</td>
+                                <td>19/02/2024</td>
+                            </tr>
+                            </tbody>
+                          </table>
+
+                        
+                        <h2 class="text-md font-semibold text-gray-600 mt-auto">Prestamos recientes</h2>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttonGroup = document.getElementById("buttonGroup");
+            const buttons = buttonGroup.querySelectorAll("button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Resaltar el botón seleccionado
+                    buttons.forEach(btn => {
+                        btn.classList.remove("bg-white", "text-blue-600");
+                        btn.classList.add("bg-gray-100", "text-gray-400");
+                    });
+                    this.classList.remove("bg-gray-100", "text-gray-400");
+                    this.classList.add("bg-white", "text-blue-600");
+                });
+            });
+        });
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnMenu = document.getElementById("menu-button");
+            const nav = document.getElementById("nav");
+
+            btnMenu.addEventListener("click", function () {
+                nav.classList.toggle("lg:-ml-64");
+                nav.classList.toggle("md:-ml-64");
+                nav.classList.toggle("-ml-80");
+
+            });
+
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dropdownButton = document.getElementById("dropdown-button");
+            const dropdownMenu = document.getElementById("dropdown-menu");
+
+            dropdownButton.addEventListener("click", function () {
+                dropdownMenu.classList.toggle("hidden");
+            });
+
+            // Cerrar el menú si se hace clic fuera de él
+            document.addEventListener("click", function (event) {
+                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
